@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AprovalCad = (props) => {
+const AprovalCard = (props) => {
     return (
         <div className="ui card">
             <div className="content">
@@ -16,4 +16,4 @@ const AprovalCad = (props) => {
     );
 }
 
-export default AprovalCad;
+export default AprovalCard;
