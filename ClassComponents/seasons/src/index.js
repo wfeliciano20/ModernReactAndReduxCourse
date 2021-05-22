@@ -8,13 +8,15 @@ class App extends React.Component{
             lattitude: null,
             errorMessage: ''
         };
+    }
+
+    componentDidMount(){
         window.navigator.geolocation.getCurrentPosition(
         position => {
             this.setState({ lattitude: position.coords.latitude});
         },
         error => {this.setState({ errorMessage: error.message})}
         );
-
     }
 
     render() {
@@ -34,7 +36,7 @@ class App extends React.Component{
         }
         else{
             return <div>Loading!</div>
-        }
+        } 
     }
 }
 
