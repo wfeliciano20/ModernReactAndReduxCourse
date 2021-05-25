@@ -3,13 +3,14 @@ import React, { Component } from 'react'
 class SearchBar extends Component {
     state = { term: ''};
 
-    onInputChange(event){
+    onInputChange = (event) => {
         const { value } = event.target
         this.setState({ term: value});
     }
 
-    onFormSubmit(event){
+    onFormSubmit = (event) => {
         event.preventDefault();
+        this.props.onSearchSubmit(this.state.term);
     }
 
     render() {
