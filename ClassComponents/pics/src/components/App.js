@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-
+require('dotenv').config();
 
 class App extends Component {
         state = { images: [] };
+
         onSearchSubmit = async (term) =>{
-        const response = axios.get('https://api.unsplash.com/search/photos',{
-            params: { query: term },
-            headers: {
-                Authorization: 'Client-ID eZhg4vuPtUa3rMBAVvFPVk1KkpMkF3X1DA9DoJWLTRA'
-            }
+            const apiKey = process.env.REACT_APP_API_KEY;
+            const response = axios.get('https://api.unsplash.com/search/photos',{
+                params: { query: term },
+                headers: {
+                    Authorization: `Client-ID ${apiKey}`
+                }
         });
         this.setState({ images: (await response).data.results });
     }
