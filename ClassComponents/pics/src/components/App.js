@@ -12,7 +12,6 @@ class App extends Component {
                 params: { query: term }
             });
         this.setState({ images: (response).data.results });
-        console.log((this.state.images));
     }
 
     render() {
