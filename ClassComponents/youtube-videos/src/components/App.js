@@ -5,6 +5,7 @@ import VideoList from "./VideoList";
 export default class App extends Component {
     state = {
         videos: [],
+        selectedVideo: null,
     };
 
     onSearchSubmit = async (term) => {
@@ -20,11 +21,18 @@ export default class App extends Component {
         }
     };
 
+    onVideoSelect = (video) => {
+        console.log("Called from App:", video);
+    };
+
     render() {
         return (
             <div className="ui container" style={{ marginTop: "10px" }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
-                <VideoList videos={this.state.videos} />
+                <VideoList
+                    onVideoSelect={this.onVideoSelect}
+                    videos={this.state.videos}
+                />
             </div>
         );
     }
