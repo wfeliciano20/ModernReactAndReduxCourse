@@ -3,11 +3,23 @@ import SearchBar from './SearchBar';
 import youtube from '../api/youtube';
 export default class App extends Component {
     state = {
-        videps:[]
+        videos:[]
     };
 
-    onSearchSubmit = (term) => {
-        console.log(term);
+    onSearchSubmit = async (term) => {
+        try {
+            let response = await youtube.get('/search',
+            {
+                params:{
+                    q: term
+                }
+            }
+            );
+            this.setState({videos:response.data.items});
+            console.log(this.state.videos.length);
+        } catch (error) {
+            console.log(error);
+        }
     }
     
     render() {
