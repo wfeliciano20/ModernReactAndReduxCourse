@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class VideoItem extends Component {
-    render() {
-        return <div> VideoItem</div>;
-    }
-}
+const VideoItem = (props) => {
+    return <div>VideoItem</div>;
+};
+
+export default VideoItem;
