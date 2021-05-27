@@ -8,10 +8,16 @@ class App extends Component {
         state = { images: [] };
 
         onSearchSubmit = async (term) =>{
-            const response = await unsplash.get('/search/photos',{
+            try {
+                const response = await unsplash.get('/search/photos',{
                 params: { query: term }
             });
-        this.setState({ images: (response).data.results });
+            this.setState({ images: (response).data.results });
+            } catch (error) {
+                console.log(error);
+            }
+            
+        
     }
 
     render() {
