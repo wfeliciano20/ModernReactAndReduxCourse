@@ -1,9 +1,10 @@
 import React from "react";
+import Accordion from "./Accordion";
 
 const App = () => {
     return (
         <div className="ui container">
-            <h1>App</h1>
+            <Accordion />
         </div>
     );
 };
