@@ -6,11 +6,6 @@ const Search = () => {
     const [debouncedTerm, setDebouncedTerm] = useState(term);
     const [results, setResults] = useState([]);
 
-    const onInputChange = (event) => {
-        const { value } = event.target;
-        setTerm(value);
-    };
-
     useEffect(() => {
         const timerId = setTimeout(() => {
             setDebouncedTerm(term);
@@ -42,6 +37,11 @@ const Search = () => {
             search();
         }
     }, [debouncedTerm]);
+
+    const onInputChange = (event) => {
+        const { value } = event.target;
+        setTerm(value);
+    };
 
     const renderedResults = results.map((result) => {
         return (
