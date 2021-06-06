@@ -5,7 +5,6 @@ const Link = ({ href, className, children }) => {
         if (event.metaKey || event.ctrlKey) {
             return;
         }
-
         event.preventDefault();
         window.history.pushState({}, "", href);
         const navEvent = new PopStateEvent("popstate");
