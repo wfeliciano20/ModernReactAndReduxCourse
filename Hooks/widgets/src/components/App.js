@@ -4,6 +4,7 @@ import Search from "./Search";
 import Dropdown from "./Dropdown";
 import Translate from "./Translate";
 import Route from "./Route";
+import Header from "./Header";
 
 const items = [
     {
@@ -37,23 +38,9 @@ const options = [
 
 const App = () => {
     const [selected, setSelected] = useState(options[0]);
-    // const [showDropdown, setShowDropdown] = useState(true);
     return (
         <div className="ui container">
-            {/* <Accordion items={items} /> */}
-            {/* <Search /> */}
-            {/* <button onClick={() => setShowDropdown(!showDropdown)}>
-                Toggle Dropdown
-            </button>
-            {showDropdown ? (
-                <Dropdown
-                    label="Select a Color"
-                    selected={selected}
-                    onSelectedChange={setSelected}
-                    options={options}
-                />
-            ) : null} */}
-            {/* <Translate /> */}
+            <Header />
             <Route path="/">
                 <Accordion items={items} />
             </Route>
