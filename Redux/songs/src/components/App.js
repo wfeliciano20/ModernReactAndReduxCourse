@@ -1,12 +1,10 @@
 import React from "react";
-import { selectSong } from "../actions";
+import SongList from "./SongList";
 
 const App = () => {
     return (
         <div>
-            <div>
-                <h1>Songs</h1>
-            </div>
+            <SongList />
         </div>
     );
 };
