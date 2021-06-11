@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions";
 
-class PostList extends React.Component {
-    componentDidMount() {
-        this.props.fetchPosts();
-    }
+const PostList = ({ posts, fetchPosts }) => {
+    useEffect(() => {
+        fetchPosts();
+    }, [fetchPosts]);
 
-    renderList = () => {
-        return this.props.posts.map((post) => {
+    const renderList = () => {
+        return posts.map((post) => {
             return (
                 <div className="item" key={post.id}>
                     <i className="large middle aligned icon user" />
@@ -23,13 +23,8 @@ class PostList extends React.Component {
         });
     };
 
-    render() {
-        return (
-            <div className="ui relaxed divided list">{this.renderList()}</div>
-        );
-    }
-}
-
+    return <div className="ui relaxed divided list">{renderList()}</div>;
+};
 const mapStateToProps = (state) => {
     return { posts: state.posts };
 };
