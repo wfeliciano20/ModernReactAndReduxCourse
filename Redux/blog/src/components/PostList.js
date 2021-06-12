@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions";
+import UserHeader from "./UserHeader";
 
 const PostList = ({ posts, fetchPosts }) => {
     useEffect(() => {
@@ -8,15 +9,16 @@ const PostList = ({ posts, fetchPosts }) => {
     }, [fetchPosts]);
 
     const renderList = () => {
-        return posts.map((post) => {
+        return posts.map(({ id, userId, title, body }) => {
             return (
-                <div className="item" key={post.id}>
+                <div className="item" key={id}>
                     <i className="large middle aligned icon user" />
                     <div className="content">
                         <div className="description">
-                            <h2>{post.title}</h2>
-                            <p>{post.body}</p>
+                            <h2>{title}</h2>
+                            <p>{body}</p>
                         </div>
+                        <UserHeader userId={userId} />
                     </div>
                 </div>
             );
