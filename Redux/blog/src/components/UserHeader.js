@@ -5,7 +5,6 @@ class UserHeader extends React.Component {
     render() {
         const { user } = this.props;
         if (!user) {
-            console.log("inside user was null");
             return null;
         }
         return <div className="header">{user.name}</div>;
