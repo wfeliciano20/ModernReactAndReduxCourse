@@ -15,4 +15,4 @@
   publish = "build-output/"
 
   # Default build command.
-  command = "echo 'default context'"
+  command = "npm run build"
